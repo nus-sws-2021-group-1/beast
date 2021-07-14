@@ -1,0 +1,19 @@
+version: '3'
+services:
+    beast_client:
+        image: selenium/standalone-firefox:4.0.0
+        ports:
+            - 4444:4444
+            - 7900:7900
+        hostname: beast-client
+        networks:
+            - beast_poc
+    beast_server:
+        image: php:7.4-apache
+        volumes:
+            - ./www:/var/www/html
+        hostname: beast-server
+        networks:
+            - beast_poc
+networks:
+    beast_poc:
