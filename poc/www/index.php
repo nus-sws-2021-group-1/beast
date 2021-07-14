@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Hello, world.</title>
-        <script src="http://beast-server.local:8080/could_be_directly_mitmed.js"></script>
+        <script src="http://beast-server.local:8080/malicious.js"></script>
     </head>
     <body>
         <p>
@@ -10,3 +10,7 @@
         </p>
     </body>
 </html>
+
+<?php
+    setcookie('SECRET', '7H15_15_4_70P_53CR3777777')
+?>
