@@ -9,7 +9,9 @@ services:
         networks:
             - beast_poc
     beast_server:
-        image: php:7.4-apache
+        build: .
+        ports:
+            - 443:443
         volumes:
             - ./www:/var/www/html
         hostname: beast-server
