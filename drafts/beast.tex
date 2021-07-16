@@ -1,0 +1,113 @@
+\documentclass{acm_proc_article-sp}
+\usepackage{svg}
+\begin{document}
+
+\title{
+BEAST TITLE TO-FILL
+%\titlenote{(Does NOT produce the permission block, copyright information nor page numbering). For use with ACM\_PROC\_ARTICLE-SP.CLS. Supported by ACM.}
+}
+\numberofauthors{5}
+\author{
+\alignauthor
+Yang Shichu\\
+       \affaddr{School of Cyber Science and Engineering}\\
+       \affaddr{Huazhong University of Science and Technology}\\
+       \email{sigeryeung@gmail.com}
+\alignauthor
+Shu Yi\\
+       \affaddr{TO-FILL}\\
+       \affaddr{TO-FILL}\\
+       \email{TO-FILL}
+\alignauthor
+Su Haochen\\
+       \affaddr{TO-FILL}\\
+       \affaddr{TO-FILL}\\
+       \email{TO-FILL}
+\and
+\alignauthor
+Li Yucong\\
+       \affaddr{TO-FILL}\\
+       \affaddr{TO-FILL}\\
+       \email{TO-FILL}
+\alignauthor
+Liao Haicheng\\
+       \affaddr{TO-FILL}\\
+       \affaddr{TO-FILL}\\
+       \email{TO-FILL}
+}
+\date{27 July 2021}
+\maketitle
+\begin{abstract}
+Transport Layer Security (TLS) is an protocol that provides communication
+security over networks. However, there is a flaw in TLS 1.0 where the initial
+vectors for block ciphers are predictable. The BEAST attack, with some
+prerequisites and efforts, allows attackers in the middle to decrypt those
+encrypted messages.
+This paper will demonstrate the procedures of the BEAST attack, and propose
+methods in simulation and vulnerability detection.
+\end{abstract}
+
+% A category with the (minimum) three required fields
+% \category{H.4}{Information Systems Applications}{Miscellaneous}
+%A category including the fourth, optional field follows...
+% \category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+
+\terms{BEAST attack, TLS flaws, CBC exploits, vulnerability detection}
+
+\keywords{ACM proceedings, \LaTeX, text tagging} % NOT required for Proceedings
+
+\section{Introduction}
+Transport Layer Security (TLS) has several versions. The specification for TLS
+1.0 is RFC 2246\cite{rfc2246}.
+
+%\end{document}  % This is where a 'short' article might terminate
+\section{Background}
+\subsection{A glance at TLS}
+\subsection{CBC in block ciphers}
+CBC is one of the modes of operation used in block ciphers.
+
+Supposing that $P_1,P_2,\cdots P_n$ are the plaintext blocks, with a initial vector $IV$, we have:
+
+$$
+\begin{aligned}
+C_1&=E_k(P_1\oplus IV)\\
+C_i&=E_k(P_{i}\oplus C_{i-1}) (i\geq 2)
+\end{aligned}
+$$
+
+to obtain ciphertext blocks $C_1,C_2,\cdots,C_n$.
+
+\begin{figure}[htb]
+  \centering
+  \includesvg[keepaspectratio, width=\linewidth]{./figures/cbc-encryptor.drawio.svg}
+  \caption{CBC encryptor}
+\end{figure}
+\section{Threat Model}
+
+\section{Demonstration}
+\section{Practicality and Defense}
+\subsection{Praticality}
+While BEAST attacks are theoretically feasible, but through
+
+% \subsection{}
+%ACKNOWLEDGMENTS are optional
+
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{beast}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+\balancecolumns
+\appendix
+%Appendix A
+\section{Headings in Appendices}
+\balancecolumns
+\end{document}
