@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.14)  16 JUL 2021 16:24
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.14)  16 JUL 2021 16:36
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -364,11 +364,11 @@ File: ./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf Graphic file (type pdf)
 
 ] (./beast.aux) ) 
 Here is how much of TeX's memory you used:
- 5147 strings out of 479682
- 87336 string characters out of 5888518
+ 5145 strings out of 479682
+ 87320 string characters out of 5888518
  365299 words of memory out of 5000000
- 22260 multiletter control sequences out of 15000+600000
- 571752 words of font info for 68 fonts, out of 8000000 for 9000
+ 22259 multiletter control sequences out of 15000+600000
+ 570249 words of font info for 67 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  53i,16n,60p,406b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
 
