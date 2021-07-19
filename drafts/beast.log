@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.14)  16 JUL 2021 16:36
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.14)  19 JUL 2021 15:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -270,52 +270,83 @@ File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfsyssoftpath@bigbuffer@items=\count268
 ) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+)) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count269
+\lst@gtempboxa=\box51
+\lst@token=\toks44
+\lst@length=\count270
+\lst@currlwidth=\dimen167
+\lst@column=\count271
+\lst@pos=\count272
+\lst@lostspace=\dimen168
+\lst@width=\dimen169
+\lst@newlines=\count273
+\lst@lineno=\count274
+\abovecaptionskip=\skip50
+\belowcaptionskip=\skip51
+\lst@maxwidth=\dimen170
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count275
+\lst@skipnumbers=\count276
+\lst@framebox=\box52
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2020/03/24 1.8d listings language file
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2020-09-11 L3 backend support: XeTeX
-\g__graphics_track_int=\count269
-\l__pdf_internal_box=\box51
-\g__pdf_backend_object_int=\count270
-\g__pdf_backend_annotation_int=\count271
+\g__graphics_track_int=\count277
+\l__pdf_internal_box=\box53
+\g__pdf_backend_object_int=\count278
+\g__pdf_backend_annotation_int=\count279
 ) (./beast.aux)
 \openout1 = `beast.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 12.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Trying to load font information for T1+aer on input line 3.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Trying to load font information for T1+aer on input line 12.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/ae/t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 ) ABD: EveryShipout initializing macros
-LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
+\c@lstlisting=\count280
+LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 39.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 48.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Package svg Info: Last page of `./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf' is 20 on input line 82.
+Package svg Info: Last page of `./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf' is 20 on input line 94.
  (./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf_tex
 File: ./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf, page 1>
@@ -357,19 +388,62 @@ File: ./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf, page 19>
 File: ./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf, page 20>
-) (./beast.bbl) [1
+) [1
 
 
-] [2
+]
+Overfull \hbox (3.18454pt too wide) in paragraph at lines 129--130
+[]\T1/aer/m/n/9 (Client Hello) Client sent a list of ac-cepted ci-pher suites. 
+ []
 
-] (./beast.aux) ) 
+
+Overfull \hbox (1.19534pt too wide) in paragraph at lines 130--131
+[]\T1/aer/m/n/9 (Server Hello) Server chose a best ac-cepted ci-pher suite,
+ []
+
+File: ./figures/tls-handshake-cipher-spec.png Graphic file (type bmp)
+<./figures/tls-handshake-cipher-spec.png>
+(/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+LaTeX Font Info:    Trying to load font information for T1+aett on input line 149.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
+LaTeX Info: Symbol \textminus not provided by
+            font family aer in TS1 encoding.
+            Default family used instead on input line 153.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 153.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Info: Symbol \textminus not provided by
+            font family aer in TS1 encoding.
+            Default family used instead on input line 154.
+LaTeX Info: Symbol \textminus not provided by
+            font family aer in TS1 encoding.
+            Default family used instead on input line 155.
+LaTeX Info: Symbol \textminus not provided by
+            font family aer in TS1 encoding.
+            Default family used instead on input line 156.
+LaTeX Info: Symbol \textminus not provided by
+            font family aer in TS1 encoding.
+            Default family used instead on input line 156.
+LaTeX Info: Symbol \textminus not provided by
+            font family aer in TS1 encoding.
+            Default family used instead on input line 156.
+File: ./figures/detection-output.png Graphic file (type bmp)
+<./figures/detection-output.png>
+ (./beast.bbl) [2] (./beast.aux) ) 
 Here is how much of TeX's memory you used:
- 5145 strings out of 479682
- 87320 string characters out of 5888518
- 365299 words of memory out of 5000000
- 22259 multiletter control sequences out of 15000+600000
- 570249 words of font info for 67 fonts, out of 8000000 for 9000
+ 6587 strings out of 479682
+ 109231 string characters out of 5888518
+ 578144 words of memory out of 5000000
+ 23664 multiletter control sequences out of 15000+600000
+ 573937 words of font info for 70 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 53i,16n,60p,406b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,16n,60p,411b,1150s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on beast.pdf (2 pages).
