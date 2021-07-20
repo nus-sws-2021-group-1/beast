@@ -1,11 +1,10 @@
-FROM php:7.4-apache
+FROM python:3
 
-RUN a2enmod ssl && a2enmod rewrite
-RUN mkdir -p /etc/apache2/ssl
-RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+WORKDIR /usr/src/app
 
-COPY ./certs/*.pem /etc/apache2/ssl/
-COPY ./scripts/000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN apt-get update && apt-get install -y libpcap0.8
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 80
-EXPOSE 443
+COPY scripts/* ./
+COPY certs/server* ./
