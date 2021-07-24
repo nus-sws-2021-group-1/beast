@@ -17,7 +17,6 @@ services:
         ports:
             - 443:443
         hostname: beast-server
-        tty: true
         networks:
             beast_poc:
                 ipv4_address: 10.9.0.3
