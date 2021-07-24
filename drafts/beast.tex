@@ -1,13 +1,14 @@
 \documentclass{acm_proc_article-sp}
 \usepackage{svg}
 \usepackage{listings}
+% \usepackage{ref}
 \lstset{
-       numberblanklines=false,
-       language=make,
-       tabsize=4,
-       frame=single,
-       keywordstyle=\color{red},
-       identifierstyle= %plain identifiers for make
+    numberblanklines=false,
+    language=make,
+    tabsize=4,
+    frame=single,
+    keywordstyle=\color{red},
+    identifierstyle= %plain identifiers for make
 }
 \begin{document}
 
@@ -19,30 +20,30 @@ BEAST TITLE TO-FILL
 \author{
 \alignauthor
 Yang Shichu\\
-       \affaddr{School of Cyber Science and Engineering}\\
-       \affaddr{Huazhong University of Science and Technology}\\
-       \email{sigeryeung@gmail.com}
+    % \affaddr{School of Cyber Science and Engineering}\\
+    \affaddr{Huazhong University of Science and Technology}\\
+    \email{TO-FILL}
 \alignauthor
 Shu Yi\\
-       \affaddr{TO-FILL}\\
-       \affaddr{TO-FILL}\\
-       \email{TO-FILL}
+    % \affaddr{}\\
+    \affaddr{Huazhong University of Science and Technology}\\
+    \email{TO-FILL}
 \alignauthor
 Su Haochen\\
-       \affaddr{TO-FILL}\\
-       \affaddr{TO-FILL}\\
-       \email{TO-FILL}
+    % \affaddr{TO-FILL}\\
+    \affaddr{Sichuan University}\\
+    \email{TO-FILL}
 \and
 \alignauthor
 Li Yucong\\
-       \affaddr{TO-FILL}\\
-       \affaddr{TO-FILL}\\
-       \email{TO-FILL}
+    % \affaddr{TO-FILL}\\
+    \affaddr{Shandong University}\\
+    \email{TO-FILL}
 \alignauthor
 Liao Haicheng\\
-       \affaddr{TO-FILL}\\
-       \affaddr{TO-FILL}\\
-       \email{TO-FILL}
+    % \affaddr{TO-FILL}\\
+    \affaddr{University of Electronic Science and Technology of China}\\
+    \email{TO-FILL}
 }
 \date{27 July 2021}
 \maketitle
@@ -95,6 +96,12 @@ to obtain ciphertext blocks $C_1,C_2,\cdots,C_n$.
   \caption{CBC encryptor}
 \end{figure}
 \section{Threat Model}
+\subsection{Prerequisites for attackers}
+\begin{itemize}
+    \item TO-DO
+\end{itemize}
+
+\section{}
 
 \section{Demonstration}
 \section{Feasibility and Defense}
@@ -103,19 +110,45 @@ While BEAST attacks are theoretically feasible, with the enhancement of security
 features of browsers and other clients, BEAST attacks are less and less practical
 for an attacker to exploit.
 
-\subsection{}
+\subsubsection{CORS}
+CORS is a group of policies to regulate the contents of cross-origin requests.
+An attacker cannot make a request to other sites using JavaScript. If an attacker
+wants to send some requests to Facebook, they will be rejected by browser's policies.
+
+That is to say, when attackers want the clients to forge a request to websites with
+credentials. These requests will not be sent. Thus, BEAST attacks will not work
+any longer.
+
+\subsubsection{WebSocket mask}
+WebSocket is not subject to CORS policies, and it can be also wrapped by TLS.
+It seems that WebSocket will be a good choice to implement BEAST attack.
+
+However, in modern clients, WebSocket payloads are masked by a value shown in \ref{fig:websocket-mask}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[keepaspectratio, width=\linewidth]{./figures/websocket-mask.png}
+    \caption{WebSocket mask}
+    \label{fig:websocket-mask}
+\end{figure}
+
+Besides, WebSocket prepends extra bits before real payload. It is still hard to
+control the block boundary.
+
+The mask makes it hard for attackers to do BEAST attacks, since the attack requires
+the first sent block mostly controllable by attackers.
 
 \subsection{Defense}
-BEAST attacks make use of a flaw in the specification of TLS 1.0, and it only
+BEAST attacks make use of a flaw in the specification of TLS 1.0, and the attack only
 works for block ciphers. That is to say, stream ciphers with TLS 1.0 are not
 vulnerable to BEAST attacks.
 
-However, stream ciphers (e.g. RC4) with TLS 1.0 is still vulnerable to other attacks.
+However, TLS 1.0 is still vulnerable to other attacks when using stream ciphers (e.g. RC4).
 Therefore, a much more direct way is just to abandon TLS 1.0, and update to later TLS
 versions.
 
 Many modern browsers and clients have also limited users to browse those sites
-with only TLS 1.0 enabled. This kind of action will boost organizations to update their
+with TLS 1.0 enabled alone. This kind of action will boost organizations to update their
 websites TLS versions. Today there are only few sites supporting TLS 1.0.
 
 \section{Detection}
@@ -123,7 +156,7 @@ websites TLS versions. Today there are only few sites supporting TLS 1.0.
 We will propose a method to detect BEAST vulnerability of a server, together with a
 Python script which is easy to use.
 
-At the stage of TLS handshake, a common cipher suite will be selected through steps:
+At the stage of TLS handshake, a cipher suite will be selected through steps:
 
 \begin{enumerate}
     \item (Client Hello) Client sent a list of accepted cipher suites.
@@ -157,9 +190,9 @@ openssl s_server \
 \end{lstlisting}
 
 \begin{figure}[htb]
-       \centering
-       \includegraphics[keepaspectratio, width=\linewidth]{./figures/detection-output.png}
-       \caption{Detection output on a TLS 1.0 server}
+    \centering
+    \includegraphics[keepaspectratio, width=\linewidth]{./figures/detection-output.png}
+    \caption{Detection output on a TLS 1.0 server}
 \end{figure}
 
 % \subsection{}
