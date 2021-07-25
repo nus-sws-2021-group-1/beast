@@ -69,17 +69,25 @@ methods in simulation and vulnerability detection.
 \section{Introduction}
 Transport Layer Security (TLS) has several versions. The specification for TLS
 1.0 is RFC 2246\cite{rfc2246}.
+In this paper we will show a flaw in one of the common modes of operation used in block ciphers
+and how it allows for a specific kind of attack\cite{beast} on HTTPS.
 
 %\end{document}  % This is where a 'short' article might terminate
 \section{Background}
 \subsection{A glance at TLS}
 
-TLS protocols
+TLS is a protocol for safe data transferring that works between the transport layer
+and the application layer. The cipher suites used in TLS often involve an asymmetric cipher
+(e.g. RSA) for key exchanging and a symmetric block cipher (e.g. AES) for message encryption.
+The protocol is widely used together with data transfer applications such as HTTP, FTP and SMTP.
 
 \subsection{CBC in block ciphers}
-CBC is one of the modes of operation used in block ciphers.
+Cipher Block Chaining (CBC) is one of the modes of operation used in block ciphers.
+In order to reduce the time spent on generating random initialization vectors (IVs), CBC always takes
+the previous encrypted ciphertext block and use it as the IV for the current plaintext block before the
+block cipher encrypts, except for the first block as shown in Figure 1.
 
-Supposing that $P_1,P_2,\cdots P_n$ are the plaintext blocks, with a initial vector $IV$, we have:
+Suppose that $P_1,P_2,\cdots P_n$ are the plaintext blocks, with a initialization vector $IV$, we have:
 
 $$
 \begin{aligned}
@@ -95,13 +103,50 @@ to obtain ciphertext blocks $C_1,C_2,\cdots,C_n$.
   \includesvg[keepaspectratio, width=\linewidth]{./figures/cbc-encryptor.drawio.svg}
   \caption{CBC encryptor}
 \end{figure}
+
+\section{The BEAST Attack}
+\subsection{Predictable IV and Consequences}
+As we mentioned in Section 2.2, a block cipher using CBC always takes its previous cipher block as
+its next IV. This means that an attacker who has been eavesdropping the whole encrypted
+conversation can infer all the IVs in the conversation except for the first one.
+If the attacker has control over such an encryption machine (i.e. he has chosen plaintext privilege),
+in an attempt to guess the plaintext of block $C_k$ with a guessed plaintext block $P_k'$,
+assuming the encryption machine is about to encrypt the $i+1$th block,
+
+he can pass
+$$
+\begin{aligned}
+P_{i+1}&=P_k'\oplus C_i\oplus C_{k-1}
+\end{aligned}
+$$
+to the machine. So that the ciphertext block would be
+$$
+\begin{aligned}
+C_{i+1}&=E_k(P_k'\oplus C_i\oplus C_{k-1}\oplus C_i)=E_k(P_k'\oplus C_{k-1})
+\end{aligned}
+$$
+Since the block cipher algorithm used in TLS is deterministic
+(i.e. same plaintext encrypts to same ciphertext),
+
+and $C_k = E_k(P_k\oplus C_{k-1})$,
+
+If $C_{i+1} = C_k$, then
+$$
+\begin{aligned}
+P_k\oplus C_{k-1}&= P_k'\oplus C_{k-1}\\
+P_k&= P_k'
+\end{aligned}
+$$
+The procedure shown above is actually a validation oracle which tells whether the attacker's guess
+on $P_k$ is correct. In conclusion, an attacker with chosen plaintext privilege in this case can use
+brute force to obtain the plaintext of any cipher block $C_k(k\geq 2)$.
+\subsection{Chosen Boundary Attacks}
+
 \section{Threat Model}
 \subsection{Prerequisites for attackers}
 \begin{itemize}
     \item TO-DO
 \end{itemize}
-
-\section{}
 
 \section{Demonstration}
 \section{Feasibility and Defense}

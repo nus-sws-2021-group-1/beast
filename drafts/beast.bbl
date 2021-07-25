@@ -5,4 +5,8 @@ C.~Allen and T.~Dierks.
 \newblock {The TLS Protocol Version 1.0}.
 \newblock RFC 2246, Jan. 1999.
 
+\bibitem{beast}
+T.~Duong and J.~Rizzo.
+\newblock Here come the $\oplus$ ninjas!, May 2011.
+
 \end{thebibliography}
