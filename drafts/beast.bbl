@@ -13,6 +13,11 @@ T.~Duong and J.~Rizzo.
 Huang and Lin-Shung.
 \newblock Talking to yourself for fun and profit, 2011.
 
+\bibitem{rfc6455}
+A.~Melnikov and I.~Fette.
+\newblock {The WebSocket Protocol}.
+\newblock RFC 6455, Dec. 2011.
+
 \bibitem{aes}
 NIST.
 \newblock Announcing the advanced encryption standard (aes), November 2001.

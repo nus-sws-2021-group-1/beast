@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.7.24)  26 JUL 2021 18:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.7.24)  27 JUL 2021 00:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -477,27 +477,35 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count298
-LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 49
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 45
 .
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Package svg Info: Last page of `./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf
-' is 20 on input line 103.
+Overfull \hbox (0.9186pt too wide) in paragraph at lines 45--45
+ []\eaddfnt suhaochen163@163.com| 
+ []
 
+
+Overfull \hbox (8.91046pt too wide) in paragraph at lines 45--45
+ []\eaddfnt LiaoHaicheng25@163.com| 
+ []
+
+Package svg Info: Last page of `./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf
+' is 20 on input line 99.
 (./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf_tex
 <./svg-inkscape/cbc-encryptor.drawio_svg-tex.pdf, id=5, page=1, 350.43422pt x 2
 25.84375pt>
@@ -742,32 +750,32 @@ a single page
 <./figures/request-example.png, id=42, 727.71875pt x 139.52126pt>
 File: ./figures/request-example.png Graphic file (type png)
 <use ./figures/request-example.png>
-Package pdftex.def Info: ./figures/request-example.png  used on input line 166.
+Package pdftex.def Info: ./figures/request-example.png  used on input line 162.
 
 (pdftex.def)             Requested size: 240.0pt x 46.01447pt.
 <./figures/revealing.png, id=44, 727.71875pt x 139.52126pt>
 File: ./figures/revealing.png Graphic file (type png)
 <use ./figures/revealing.png>
-Package pdftex.def Info: ./figures/revealing.png  used on input line 182.
+Package pdftex.def Info: ./figures/revealing.png  used on input line 178.
 (pdftex.def)             Requested size: 240.0pt x 46.01447pt.
 
-Overfull \hbox (2.23132pt too wide) in paragraph at lines 201--203
+Overfull \hbox (2.23132pt too wide) in paragraph at lines 197--199
 []\T1/aer/b/n/9 Chosen Plain-text \T1/aer/m/n/9 The at-tacker can con-struct an
 y known
  []
 
 [2 <./figures/request-example.png> <./figures/revealing.png>]
-Overfull \hbox (4.26442pt too wide) in paragraph at lines 237--239
+Overfull \hbox (4.26442pt too wide) in paragraph at lines 233--235
 \T1/aer/m/n/9 func-tion and rep-re-sents the net-work eaves-drop-ping priv-
  []
 
 <./figures/simulation.png, id=51, 619.31375pt x 478.78876pt>
 File: ./figures/simulation.png Graphic file (type png)
 <use ./figures/simulation.png>
-Package pdftex.def Info: ./figures/simulation.png  used on input line 249.
+Package pdftex.def Info: ./figures/simulation.png  used on input line 245.
 (pdftex.def)             Requested size: 240.0pt x 185.54333pt.
 
-Overfull \hbox (8.851pt too wide) in paragraph at lines 273--274
+Overfull \hbox (8.851pt too wide) in paragraph at lines 269--270
 []\T1/aer/m/n/9 However, in mod-ern clients, Web-Socket pay-loads are masked[3]
 
  []
@@ -775,32 +783,32 @@ Overfull \hbox (8.851pt too wide) in paragraph at lines 273--274
 <./figures/websocket-mask.png, id=52, 671.50874pt x 433.62pt>
 File: ./figures/websocket-mask.png Graphic file (type png)
 <use ./figures/websocket-mask.png>
-Package pdftex.def Info: ./figures/websocket-mask.png  used on input line 277.
+Package pdftex.def Info: ./figures/websocket-mask.png  used on input line 273.
 (pdftex.def)             Requested size: 240.0pt x 154.97827pt.
 [3 <./figures/simulation.png> <./figures/websocket-mask.png>]
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 308.
+            Default family used instead on input line 304.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 308.
+            Default family used instead on input line 304.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 309.
+            Default family used instead on input line 305.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 309.
+            Default family used instead on input line 305.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 309.
+            Default family used instead on input line 305.
 
-Overfull \hbox (3.18454pt too wide) in paragraph at lines 318--319
+Overfull \hbox (3.18454pt too wide) in paragraph at lines 314--315
 []\T1/aer/m/n/9 (Client Hello) Client sent a list of ac-cepted ci-pher suites. 
 
  []
 
 
-Overfull \hbox (1.19534pt too wide) in paragraph at lines 319--320
+Overfull \hbox (1.19534pt too wide) in paragraph at lines 315--316
 []\T1/aer/m/n/9 (Server Hello) Server chose a best ac-cepted ci-pher suite,
  []
 
@@ -808,7 +816,7 @@ Overfull \hbox (1.19534pt too wide) in paragraph at lines 319--320
 File: ./figures/tls-handshake-cipher-spec.png Graphic file (type png)
 <use ./figures/tls-handshake-cipher-spec.png>
 Package pdftex.def Info: ./figures/tls-handshake-cipher-spec.png  used on input
- line 324.
+ line 320.
 (pdftex.def)             Requested size: 240.0pt x 128.1707pt.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
@@ -817,50 +825,63 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 LaTeX Font Info:    Trying to load font information for T1+aett on input line 3
-38.
+34.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 342.
+            Default family used instead on input line 338.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 343.
+            Default family used instead on input line 339.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 344.
+            Default family used instead on input line 340.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 345.
+            Default family used instead on input line 341.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 345.
+            Default family used instead on input line 341.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 345.
+            Default family used instead on input line 341.
 <./figures/detection-output.png, id=59, 746.79pt x 185.69376pt>
 File: ./figures/detection-output.png Graphic file (type png)
 <use ./figures/detection-output.png>
-Package pdftex.def Info: ./figures/detection-output.png  used on input line 350
+Package pdftex.def Info: ./figures/detection-output.png  used on input line 346
 .
 (pdftex.def)             Requested size: 240.0pt x 59.67538pt.
  (./beast.bbl)
 [4 <./figures/tls-handshake-cipher-spec.png> <./figures/detection-output.png>]
-[5
+Overfull \hbox (3.95528pt too wide) in paragraph at lines 367--367
+[]\secfnt TRIALS AND ER-RORS IN SIM-U-LA-TION 
+ []
 
-]
+<./figures/split.png, id=65, 963.6pt x 453.695pt>
+File: ./figures/split.png Graphic file (type png)
+<use ./figures/split.png>
+Package pdftex.def Info: ./figures/split.png  used on input line 380.
+(pdftex.def)             Requested size: 240.0pt x 112.99425pt.
+
+Overfull \hbox (4.01192pt too wide) in paragraph at lines 393--399
+\T1/aer/m/n/9 priv-i-lege. The ran-dom-ness and un-pre-dictable na-ture of mask
+s
+ []
+
+[5 <./figures/split.png>]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     377.
+(LaTeX3)     411.
 
  (./beast.aux) ) 
 Here is how much of TeX's memory you used:
- 7346 strings out of 478994
- 118380 string characters out of 5858184
- 637699 words of memory out of 5000000
- 24641 multiletter control sequences out of 15000+600000
+ 7353 strings out of 478994
+ 118518 string characters out of 5858184
+ 637710 words of memory out of 5000000
+ 24648 multiletter control sequences out of 15000+600000
  449831 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,16n,102p,316b,1112s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -880,10 +901,10 @@ e/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/
 f-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type
 1/urw/times/utmri8a.pfb>
-Output written on beast.pdf (5 pages, 632711 bytes).
+Output written on beast.pdf (5 pages, 809922 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
+ 116 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
 

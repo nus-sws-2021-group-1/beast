@@ -22,28 +22,24 @@ BEAST TITLE TO-FILL
 Yang Shichu\\
     % \affaddr{School of Cyber Science and Engineering}\\
     \affaddr{Huazhong University of Science and Technology}\\
-    \email{TO-FILL}
+    \email{sigeryeung@gmail.com}
 \alignauthor
 Shu Yi\\
-    % \affaddr{}\\
     \affaddr{Huazhong University of Science and Technology}\\
-    \email{TO-FILL}
+    \email{1907230957@qq.com}
 \alignauthor
 Su Haochen\\
-    % \affaddr{TO-FILL}\\
     \affaddr{Sichuan University}\\
-    \email{TO-FILL}
+    \email{suhaochen163@163.com}
 \and
 \alignauthor
 Li Yucong\\
-    % \affaddr{TO-FILL}\\
     \affaddr{Shandong University}\\
-    \email{TO-FILL}
+    \email{lycbin@gamil.com}
 \alignauthor
 Liao Haicheng\\
-    % \affaddr{TO-FILL}\\
     \affaddr{University of Electronic Science and Technology of China}\\
-    \email{TO-FILL}
+    \email{LiaoHaicheng25@163.com}
 }
 \date{27 July 2021}
 \maketitle
@@ -257,7 +253,7 @@ While BEAST attacks are theoretically feasible, with the enhancement of security
 features of browsers and other clients, BEAST attacks are less and less practical
 for an attacker to exploit.
 
-\subsubsection{CORS}
+\subsubsection{Cross-Origin Resource Sharing (CORS)}
 CORS is a group of policies to regulate the contents of cross-origin requests.
 An attacker cannot make a request to other sites using JavaScript. If an attacker
 wants to send some requests to Facebook, they will be rejected by browser's policies.
@@ -368,10 +364,48 @@ openssl s_server \
 %APPENDICES are optional
 \balancecolumns
 \appendix
-%Appendix A
-% \section{Headings in Appendices}
-% \section{Detection script for BEAST}
-% \begin{lstlisting}[language=Python]
-% \end{lstlisting}
+\section{Trials and errors in simulation}
+In trying to recreate the BEAST attack, we first wanted to implement a full-fledged attack scenario
+with a real vulnerable HTTPS server and a real browser client. The server part was easy. It only
+required a specially configured Apache httpd server. Yet we ran into several issues when trying to
+implement the attack, which forced us to abandon the original plan.
+\subsection{Browsers mysteriously splitting requests}
+We issued a normal request to the server using a common browser (Firefox) and used Wireshark to
+sniff the packets and observe the packet structure. In the process, we noticed that Firefox
+mysteriously split our very short request plaintext into two parts as in \ref{fig:split}:
+one with a single 'G' as in the HTTP 'GET' verb, the other with the rest of the request.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[keepaspectratio, width=\linewidth]{./figures/split.png}
+    \caption{a TLS record with only 1 byte of plaintext}
+    \label{fig:split}
+\end{figure}
+Notice that in this figure, the plaintext 'G' is padded to as long as 2 blocks (32 bytes) and the rest of
+the request is found in packet No.15.
+After several retries, we found that this behavior is consistent between requests in Firefox and it only
+splits requests this way when using a TLS 1.0 protocol. Also, experiments conducted with \textit{curl}
+shows that curl is not doing this. Although in this case chosen boundary privilege can still be
+obtained, the attacker is now much harder to mount the attack without prior knowledge of the
+browser's behavior. So splitting requests might also be a simple yet effective countermeasure
+against the BEAST attack. Good job, Firefox developers!
+\subsection{Masking is mandatory}
+As we mentioned in Section 6.1.2, the use of WebSocket mask prevents the attacker from gaining
+chosen plaintext privilege. The randomness and unpredictable nature of masks for each message
+made it impossible for any client JavaScript to control the plaintext of a block. We looked for ways
+to disable masking for our demonstration purpose, only to sadly realize that it is required, not
+recommended by design\cite{rfc6455} that the client uses a mask when transmitting messages.
+This is actually not to defend against BEAST attacks, but unfortunately it broke our original plan.
+
+\section{Scanning the internet}
+We scanned the 10 most visited websites in China using our detection tool and found that
+(surprisingly) 7 out of 10 sites still supports at least one encryption scheme vulnerable to the BEAST
+attack. The other 3 sites either do not support TLS 1.0 with CBC block ciphers or drop TLS 1.0
+requests immediately.
+
+We also did a scan on Prof.Anderson's site and it turned out that our professor did not give us the
+chance to try out the attack on his site by not supporting TLS 1.0 entirely.
+
+
 \balancecolumns
 \end{document}
