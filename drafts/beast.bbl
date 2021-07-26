@@ -9,9 +9,21 @@ C.~Allen and T.~Dierks.
 T.~Duong and J.~Rizzo.
 \newblock Here come the $\oplus$ ninjas!, May 2011.
 
+\bibitem{mask}
+Huang and Lin-Shung.
+\newblock Talking to yourself for fun and profit, 2011.
+
 \bibitem{aes}
 NIST.
 \newblock Announcing the advanced encryption standard (aes), November 2001.
+
+\bibitem{disable}
+A.~Russell.
+\newblock Disable tls 1.0 and 1.1 in apache and nginx, August 2020.
+
+\bibitem{scapy}
+secdev.
+\newblock Scapy: Packet crafting for python2 and python3.
 
 \bibitem{seclv}
 Wikipedia.

@@ -213,7 +213,7 @@ Section 6.1, where we discuss why BEAST attack fails in front of the latest secu
 \section{Demonstration}
 In this section, we show how we simulated a BEAST attack using raw socket over TLS.
 Our simulation is based on the Docker virtualization platform, and we use the TLSAutomaton API
-provided by the Python library Scapy\ref{scapy} to recreate a simple echo server and client using
+provided by the Python library Scapy\cite{scapy} to recreate a simple echo server and client using
 TLS 1.0. The full simulation code can be obtained from our project repository, the outline of our
 simulation is as follows:
 \begin{itemize}
@@ -223,6 +223,33 @@ simulation is as follows:
     \item \textbf{Client and Attacker} We use one Python script as both the client and the attacker. This
     is for the sake of simplicity and ease on capturing traffic within a Docker container.
 \end{itemize}
+In our simulated environment, the client and the server communicates over the same subnet and
+uses the standard TLS 1.0 protocol as security guard. In the client script, the client and the attacker
+are separated in different classes. The client class holds a secret variable which cannot be accessed
+by the attacker, while the hacker class has access to these objects:
+\begin{itemize}
+    \item \textbf{send():} Tells the client to encrypt and send an arbitrary plaintext block. The block is
+    passed to AES as is and will not involve any secret string. This simulates the attacker's chosen
+    boundary privilege.
+    \item \textbf{sendWithCookie():} Gives the client a printable string. The client appends the secret
+    string to it before passing it to AES. In our code we did not actually check whether the provided
+    string is printable, it's only a crude simulation of chosen plaintext privilege.
+    \item \textbf{Packet pkt:} This is the packet sniffed by Scapy's \textit{sniff()} function and
+    represents the network eavesdropping privilege. It is passed to the hacker class via a callback.
+\end{itemize}
+When the simulation starts, a session secret with 8 printable bytes is generated and passed to the
+client class.
+Then a 'hello' message is encrypted and sent to the server to start the IV chaining.
+Now the attacker uses the technique described in Section 3.2 to obtain every byte of the secret.
+In our script, we log and print every call to \textit{send()} and \textit{sendWithCookie()}.
+Whenever the attacker guesses a byte correctly, we append the byte to a known secret string and
+print it. After at most $2^{11}$ guesses, the entire secret is revealed and printed, as in \ref{fig:simulation}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[keepaspectratio, width=\linewidth]{./figures/simulation.png}
+    \caption{result of the simulation}
+    \label{fig:simulation}
+\end{figure}
 
 \section{Feasibility and Defense}
 \subsection{Feasibility}
@@ -243,7 +270,7 @@ any longer.
 WebSocket is not subject to CORS policies, and it can be also wrapped by TLS.
 It seems that WebSocket will be a good choice to implement BEAST attack.
 
-However, in modern clients, WebSocket payloads are masked by a value shown in \ref{fig:websocket-mask}.
+However, in modern clients, WebSocket payloads are masked\cite{mask} by a value shown in \ref{fig:websocket-mask}.
 
 \begin{figure}[htb]
     \centering
@@ -252,11 +279,11 @@ However, in modern clients, WebSocket payloads are masked by a value shown in \r
     \label{fig:websocket-mask}
 \end{figure}
 
-Besides, WebSocket prepends extra bits before real payload. It is still hard to
+Besides, WebSocket prepends extra bits before the real payload. It is still hard to
 control the block boundary.
 
-The mask makes it hard for attackers to do BEAST attacks, since the attack requires
-the first sent block mostly controllable by attackers.
+The mask makes it hard for attackers to do BEAST attacks, since the attacker will not be able to
+gain complete control over any plaintext block, thus losing the chosen plaintext privilege.
 
 \subsection{Defense}
 BEAST attacks make use of a flaw in the specification of TLS 1.0, and the attack only
@@ -269,14 +296,23 @@ versions.
 
 Many modern browsers and clients have also limited users to browse those sites
 with TLS 1.0 enabled alone. This kind of action will boost organizations to update their
-websites TLS versions. Today there are only few sites supporting TLS 1.0.
+websites TLS versions. Today most popular sites on the internet have dropped support for TLS 1.0.
+
+Yet for new services on the internet, it should be noticed that popular web servers such as Apache
+and Nginx still supports TLS 1.0 by default\cite{disable} and should be manually disabled.
 
 \section{Detection}
+Detection of server vulnerability is easy. We only need to scan all cipher suites accepted by the TLS
+1.0 server. This can be done with \textit{nmap}, with the following command:
+\begin{lstlisting}
+nmap --script \
+ssl-enum-ciphers -p <PORT> <DOMAIN NAME>
+\end{lstlisting}
 
-We will propose a method to detect BEAST vulnerability of a server, together with a
-Python script which is easy to use.
+Here we will propose a method to detect BEAST vulnerability of a server, together with a
+Python script which displays clearly whether each cipher suite is vulnerable.
 
-At the stage of TLS handshake, a cipher suite will be selected through steps:
+At the stage of TLS handshake, a cipher suite will be selected through these steps:
 
 \begin{enumerate}
     \item (Client Hello) Client sent a list of accepted cipher suites.
@@ -296,7 +332,7 @@ The server is vulnerable to BEAST attacks if it accepts TLS 1.0 handshake and su
 cipher suites with CBC modes.
 
 \begin{lstlisting}[language=bash]
-python scan.py host port
+python scan.py <HOST> <PORT>
 \end{lstlisting}
 
 The \texttt{openssl} utility is able to start a TLS server with many options.
