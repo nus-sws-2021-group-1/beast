@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.7.24)  25 JUL 2021 18:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.7.24)  26 JUL 2021 16:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -739,29 +739,46 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./svg-inkscape/cbc-encryptor
 .drawio_svg-tex.pdf): PDF inclusion: multiple pdfs with page group included in 
 a single page
 >]
-<./figures/websocket-mask.png, id=42, 671.50874pt x 433.62pt>
+<./figures/request-example.png, id=42, 727.71875pt x 139.52126pt>
+File: ./figures/request-example.png Graphic file (type png)
+<use ./figures/request-example.png>
+Package pdftex.def Info: ./figures/request-example.png  used on input line 166.
+
+(pdftex.def)             Requested size: 240.0pt x 46.01447pt.
+<./figures/revealing.png, id=44, 727.71875pt x 139.52126pt>
+File: ./figures/revealing.png Graphic file (type png)
+<use ./figures/revealing.png>
+Package pdftex.def Info: ./figures/revealing.png  used on input line 182.
+(pdftex.def)             Requested size: 240.0pt x 46.01447pt.
+
+Overfull \hbox (2.23132pt too wide) in paragraph at lines 201--203
+[]\T1/aer/b/n/9 Chosen Plain-text \T1/aer/m/n/9 The at-tacker can con-struct an
+y known
+ []
+
+[2 <./figures/request-example.png> <./figures/revealing.png>]
+<./figures/websocket-mask.png, id=51, 671.50874pt x 433.62pt>
 File: ./figures/websocket-mask.png Graphic file (type png)
 <use ./figures/websocket-mask.png>
-Package pdftex.def Info: ./figures/websocket-mask.png  used on input line 175.
+Package pdftex.def Info: ./figures/websocket-mask.png  used on input line 237.
 (pdftex.def)             Requested size: 240.0pt x 154.97827pt.
 
-Overfull \hbox (3.18454pt too wide) in paragraph at lines 207--208
+Overfull \hbox (3.18454pt too wide) in paragraph at lines 269--270
 []\T1/aer/m/n/9 (Client Hello) Client sent a list of ac-cepted ci-pher suites. 
 
  []
 
 
-Overfull \hbox (1.19534pt too wide) in paragraph at lines 208--209
+Overfull \hbox (1.19534pt too wide) in paragraph at lines 270--271
 []\T1/aer/m/n/9 (Server Hello) Server chose a best ac-cepted ci-pher suite,
  []
 
-<./figures/tls-handshake-cipher-spec.png, id=43, 913.4125pt x 487.8225pt>
+<./figures/tls-handshake-cipher-spec.png, id=52, 913.4125pt x 487.8225pt>
 File: ./figures/tls-handshake-cipher-spec.png Graphic file (type png)
 <use ./figures/tls-handshake-cipher-spec.png>
 Package pdftex.def Info: ./figures/tls-handshake-cipher-spec.png  used on input
- line 213.
+ line 275.
 (pdftex.def)             Requested size: 240.0pt x 128.1707pt.
-[2 <./figures/websocket-mask.png> <./figures/tls-handshake-cipher-spec.png>]
 (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
@@ -769,47 +786,48 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 LaTeX Font Info:    Trying to load font information for T1+aett on input line 2
-27.
+89.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 231.
+            Default family used instead on input line 293.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 232.
+            Default family used instead on input line 294.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 233.
+            Default family used instead on input line 295.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 234.
+            Default family used instead on input line 296.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 234.
+            Default family used instead on input line 296.
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
-            Default family used instead on input line 234.
-<./figures/detection-output.png, id=48, 746.79pt x 185.69376pt>
+            Default family used instead on input line 296.
+<./figures/detection-output.png, id=53, 746.79pt x 185.69376pt>
 File: ./figures/detection-output.png Graphic file (type png)
 <use ./figures/detection-output.png>
-Package pdftex.def Info: ./figures/detection-output.png  used on input line 239
+Package pdftex.def Info: ./figures/detection-output.png  used on input line 301
 .
 (pdftex.def)             Requested size: 240.0pt x 59.67538pt.
- (./beast.bbl)
-[3 <./figures/detection-output.png>]
+ (./beast.bbl
+[3 <./figures/websocket-mask.png> <./figures/tls-handshake-cipher-spec.png> <./
+figures/detection-output.png>]) [4]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     266.
+(LaTeX3)     328.
 
  (./beast.aux) ) 
 Here is how much of TeX's memory you used:
- 7306 strings out of 478994
- 117687 string characters out of 5858184
- 635884 words of memory out of 5000000
- 24607 multiletter control sequences out of 15000+600000
+ 7323 strings out of 478994
+ 118077 string characters out of 5858184
+ 638596 words of memory out of 5000000
+ 24622 multiletter control sequences out of 15000+600000
  447348 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,16n,102p,316b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -828,10 +846,10 @@ e/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/
 xmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dis
 t/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on beast.pdf (3 pages, 305860 bytes).
+Output written on beast.pdf (4 pages, 359120 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 

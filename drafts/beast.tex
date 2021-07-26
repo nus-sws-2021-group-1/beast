@@ -85,7 +85,7 @@ The protocol is widely used together with data transfer applications such as HTT
 Cipher Block Chaining (CBC) is one of the modes of operation used in block ciphers.
 In order to reduce the time spent on generating random initialization vectors (IVs), CBC always takes
 the previous encrypted ciphertext block and use it as the IV for the current plaintext block before the
-block cipher encrypts, except for the first block as shown in Figure 1.
+block cipher encrypts, except for the first block as shown in \ref{fig:cbc-encryptor}.
 
 Suppose that $P_1,P_2,\cdots P_n$ are the plaintext blocks, with a initialization vector $IV$, we have:
 
@@ -102,6 +102,7 @@ to obtain ciphertext blocks $C_1,C_2,\cdots,C_n$.
   \centering
   \includesvg[keepaspectratio, width=\linewidth]{./figures/cbc-encryptor.drawio.svg}
   \caption{CBC encryptor}
+  \label{fig:cbc-encryptor}
 \end{figure}
 
 \section{The BEAST Attack}
@@ -141,14 +142,88 @@ The procedure shown above is actually a validation oracle which tells whether th
 on $P_k$ is correct. In conclusion, an attacker with chosen plaintext privilege in this case can use
 brute force to obtain the plaintext of any cipher block $C_k(k\geq 2)$.
 \subsection{Chosen Boundary Attacks}
+\subsubsection{Failure of chosen plaintext}
+The chosen plaintext attack shown above requires that the attacker guesses the content of a whole
+block every time. Although this effectively gets IVs from CBC mode out of the way, it is still not a
+practical attack as the time required to decrypt a single block would be sufficiently long.
+For Advanced Encryption Standard (AES), a commonly used block cipher,
+the block size is 16 bytes\cite{aes} which means an attacker would have to guess up to $2^{128}$
+blocks for one ciphertext block.
+This is considered secure as AES is designed with a 128-bit security level\cite{seclv} and this
+security level is unharmed. So for an attack to work, it needs to further reduce the number of guess
+trials.
+\subsubsection{The BEAST}
+Recall that in Section 3.1 we mentioned an attacker with chosen plaintext privilege. Here we
+will show that if such an attacker further gains chosen boundary privilege, he can decrypt a secret
+string with far less trials than a simple brute force attack. The chosen boundary privilege means that
+the attacker can force the victim to send cookie-bearing requests with arbitrary request paths to the
+HTTPS server. If the attacker gains this privilege, he can carefully craft the request path so that
+exactly 1 byte of the target string will be placed at the end of a plaintext block while the rest is at the
+beginning of the next plaintext block. An example of such a request is shown in \ref{fig:req-example}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[keepaspectratio, width=\linewidth]{./figures/request-example.png}
+    \caption{chosen boundary request example}
+    \label{fig:req-example}
+\end{figure}
+In this case, 15 out of 16 bytes in the second plaintext block is
+already known to the attacker. Now the attacker performs the same chosen plaintext attack
+described in Section 3.1 except that he only has to guess 256 times to obtain the first byte of the
+secret string.
+
+After obtaining the first byte of the secret, the attacker reduces the length of the request path by 1
+byte, so 2 bytes of the secret are now at the end of the plaintext block. As the first byte is already
+compromised, the attacker can use the same technique above to obtain the second byte with only
+256 guesses. Repeating the steps shown above, the attacker can eventually reveal the whole secret
+string with chosen boundary requests as in \ref{fig:reveal} (showing only the block to guess).
+\begin{figure}[htb]
+    \centering
+    \includegraphics[keepaspectratio, width=\linewidth]{./figures/revealing.png}
+    \caption{revealing the secret bytes 1 by 1}
+    \label{fig:reveal}
+\end{figure}
+
+In this attack scenario, only $256\times16 = 2^{12}$ guesses are needed to decrypt an entire block 
+of secret, effectively reducing the 128-bit security level in AES to only 12 bits. As this attack aims at
+breaking certain ciphers used in Secure Sockets Layer (SSL) and TLS and requires chosen
+boundary privilege which is often obtained by injecting malicious JavaScript into a webpage,
+this kind of attack is therefore named Browser Exploit Against SSL/TLS (BEAST).
 
 \section{Threat Model}
 \subsection{Prerequisites for attackers}
+In order to mount such an attack, the attacker must have these capabilities:
 \begin{itemize}
-    \item TO-DO
+    \item \textbf{Network Eavesdropping} The attacker must be able to capture the whole 
+    encrypted conversation to know every IV in the process. This information is obtainable most
+    of the time, yet certain protocols used at link layer (e.g. Wi-Fi with Pre-Shared Key, Virtual Private
+    Networks) may prevent this.
+    \item \textbf{Chosen Plaintext} The attacker can construct any known plaintext block and force the
+    client to encrypt and send it via HTTPS. This allows for guessing the content of a ciphertext block.
+    \item \textbf{Chosen Boundary} The attacker should be able to force the client to send arbitrary
+    requests with cookie to the HTTPS server. By controlling the resource path, the attacker is able to
+    place the secret cookie anywhere in a plaintext block.
 \end{itemize}
+\subsection{Server vulnerability}
+The BEAST attack only works against TLS Version 1.0 and requires a block cipher working in CBC
+mode. For the attacker to gain chosen plaintext privilege, the server must also host a WebSocket
+service that allows sending arbitrary plaintext without any formatting. This is further addressed in
+Section 6.1, where we discuss why BEAST attack fails in front of the latest security standards.
 
 \section{Demonstration}
+In this section, we show how we simulated a BEAST attack using raw socket over TLS.
+Our simulation is based on the Docker virtualization platform, and we use the TLSAutomaton API
+provided by the Python library Scapy\ref{scapy} to recreate a simple echo server and client using
+TLS 1.0. The full simulation code can be obtained from our project repository, the outline of our
+simulation is as follows:
+\begin{itemize}
+    \item \textbf{Vulnerable Server} A simple echo server over TLS with self-signed certificates. Most
+    importantly, it supports TLS 1.0 and prefers a cipher suite with CBC. Thanks to Scapy, all it took
+    was one line of code!
+    \item \textbf{Client and Attacker} We use one Python script as both the client and the attacker. This
+    is for the sake of simplicity and ease on capturing traffic within a Docker container.
+\end{itemize}
+
 \section{Feasibility and Defense}
 \subsection{Feasibility}
 While BEAST attacks are theoretically feasible, with the enhancement of security
