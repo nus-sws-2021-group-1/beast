@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.7.24)  27 JUL 2021 09:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.7.24)  27 JUL 2021 16:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -801,23 +801,13 @@ LaTeX Info: Symbol \textminus not provided by
 LaTeX Info: Symbol \textminus not provided by
             font family aer in TS1 encoding.
             Default family used instead on input line 304.
-
-Overfull \hbox (3.18454pt too wide) in paragraph at lines 313--314
-[]\T1/aer/m/n/9 (Client Hello) Client sent a list of ac-cepted ci-pher suites. 
-
- []
-
-
-Overfull \hbox (1.19534pt too wide) in paragraph at lines 314--315
-[]\T1/aer/m/n/9 (Server Hello) Server chose a best ac-cepted ci-pher suite,
- []
-
 <./figures/tls-handshake-cipher-spec.png, id=58, 913.4125pt x 487.8225pt>
 File: ./figures/tls-handshake-cipher-spec.png Graphic file (type png)
 <use ./figures/tls-handshake-cipher-spec.png>
 Package pdftex.def Info: ./figures/tls-handshake-cipher-spec.png  used on input
  line 319.
 (pdftex.def)             Requested size: 240.0pt x 128.1707pt.
+
 (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
@@ -856,17 +846,17 @@ Package pdftex.def Info: ./figures/detection-output.png  used on input line 345
 (pdftex.def)             Requested size: 240.0pt x 59.67538pt.
  (./beast.bbl)
 [4 <./figures/tls-handshake-cipher-spec.png> <./figures/detection-output.png>]
-Overfull \hbox (3.95528pt too wide) in paragraph at lines 366--366
+Overfull \hbox (3.95528pt too wide) in paragraph at lines 378--378
 []\secfnt TRIALS AND ER-RORS IN SIM-U-LA-TION 
  []
 
 <./figures/split.png, id=65, 963.6pt x 453.695pt>
 File: ./figures/split.png Graphic file (type png)
 <use ./figures/split.png>
-Package pdftex.def Info: ./figures/split.png  used on input line 379.
+Package pdftex.def Info: ./figures/split.png  used on input line 391.
 (pdftex.def)             Requested size: 240.0pt x 112.99425pt.
 
-Overfull \hbox (4.01192pt too wide) in paragraph at lines 392--398
+Overfull \hbox (4.01192pt too wide) in paragraph at lines 404--410
 \T1/aer/m/n/9 priv-i-lege. The ran-dom-ness and un-pre-dictable na-ture of mask
 s
  []
@@ -874,13 +864,13 @@ s
 [5 <./figures/split.png>]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     410.
+(LaTeX3)     422.
 
  (./beast.aux) ) 
 Here is how much of TeX's memory you used:
  7353 strings out of 478994
  118518 string characters out of 5858184
- 637710 words of memory out of 5000000
+ 638705 words of memory out of 5000000
  24648 multiletter control sequences out of 15000+600000
  449831 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -901,7 +891,7 @@ e/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/
 f-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type
 1/urw/times/utmri8a.pfb>
-Output written on beast.pdf (5 pages, 810804 bytes).
+Output written on beast.pdf (5 pages, 811422 bytes).
 PDF statistics:
  116 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream

@@ -310,8 +310,8 @@ Python script which displays clearly whether each cipher suite is vulnerable.
 At the stage of TLS handshake, a cipher suite will be selected through these steps:
 
 \begin{enumerate}
-    \item (Client Hello) Client sent a list of accepted cipher suites.
-    \item (Server Hello) Server chose a best accepted cipher suite, or a handshake failure occured.
+    \item (Client Hello) Client sends a list of accepted cipher suites.
+    \item (Server Hello) Server chooses a best accepted cipher suite, or a handshake failure occurs.
 \end{enumerate}
 
 \begin{figure}[htb]
@@ -345,6 +345,18 @@ openssl s_server \
     \includegraphics[keepaspectratio, width=\linewidth]{./figures/detection-output.png}
     \caption{Detection output on a TLS 1.0 server}
 \end{figure}
+
+\section{Conclusion}
+In this paper, we described an attack on TLS 1.0 which was discovered ten years ago and shown
+the vulnerability of block ciphers operating in CBC mode.
+
+We further explained how it worked by using Docker and Python to simulate such an attack scenario.
+
+Then we looked at the feasibility of this attack today and
+how modern security policies defend against it.
+
+Finally we proposed a simple and easy-to-use
+scanning script to detect possible BEAST attack vulnerability.
 
 % \subsection{}
 %ACKNOWLEDGMENTS are optional
@@ -383,7 +395,7 @@ one with a single 'G' as in the HTTP 'GET' verb, the other with the rest of the 
 Notice that in this figure, the plaintext 'G' is padded to as long as 2 blocks (32 bytes) and the rest of
 the request is found in packet No.15.
 After several retries, we found that this behavior is consistent between requests in Firefox and it only
-splits requests this way when using a TLS 1.0 protocol. Also, experiments conducted with \textit{curl}
+splits requests this way when using TLS 1.0 protocol. Also, experiments conducted with \textit{curl}
 shows that curl is not doing this. Although in this case chosen boundary privilege can still be
 obtained, the attacker is now much harder to mount the attack without prior knowledge of the
 browser's behavior. So splitting requests might also be a simple yet effective countermeasure
